@@ -12,6 +12,7 @@ enum API{
     case invoices
     case login
     case report
+    case user
     static func GetLink(_ api: API) -> String {
         switch api {
         case .checkToken:
@@ -22,6 +23,8 @@ enum API{
             return "https://quanlytro.herokuapp.com/invoices"
         case .report:
             return "https://quanlytro.herokuapp.com/reports"
+        case .user:
+            return "https://quanlytro.herokuapp.com/users"
         }
     }
 }

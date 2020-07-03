@@ -9,14 +9,16 @@
 import UIKit
 
 class SettingViewController: UIViewController {
+    
+    var tableView: UITableView?
+    var settings:[String] = ["Generate Barcode"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .lightGray
-        self.title = "Setting"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(self.LogoutButtonAction))
-        // Do any additional setup after loading the view.
+        SetupView()
+        
+        SetupTableView()
     }
     
 

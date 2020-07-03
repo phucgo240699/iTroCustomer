@@ -15,46 +15,7 @@ extension LoginVC{
             let tokenResult = try JSONDecoder().decode(Token.self, from: data)
             
             if(tokenResult.success == true){
-                //  if login success, move to main tab view controller
-                self.usernameTxtField?.text = ""
-                self.passwordTxtField?.text = ""
-                
-                guard let windowScene = UIApplication.shared.connectedScenes.first as?UIWindowScene,
-                let sceneDelegate = windowScene.delegate as? SceneDelegate
-                else {
-                    return
-                }
-                
-                sceneDelegate.mainTab = MainTabBarViewController()
-                sceneDelegate.window?.rootViewController = sceneDelegate.mainTab
-                // Then save or create accesstoken to db
-                if let token = tokenResult.accessToken{
-                    let myToken = AccessToken()// this is token in db
-                    myToken.token = token
-                    let realm = try Realm()
-                    
-                    let tokenInDB = realm.objects(AccessToken.self)
-                    
-                    // Create new if db doesn't has
-                    if(tokenInDB.count == 0){
-                        try realm.write{
-                            realm.add(myToken)
-                        }
-                    }
-                    
-                    // update if token is already exist
-                    else{
-                        try realm.write{
-                            tokenInDB[0].token = myToken.token
-                        }
-                    }
-                    
-                    sceneDelegate.accessToken = token // Update accesstoken in sceneDelegate
-                }
-            }
-            else{
-                self.ShowError("Error", tokenResult.error ?? "There is an error")
-                
+                TokenServices.CheckToken(tokenResult.accessToken!)
             }
         }
         catch{
@@ -87,3 +48,45 @@ extension LoginVC{
     }
     
 }
+//
+//self.usernameTxtField?.text = ""
+//    self.passwordTxtField?.text = ""
+//
+//    guard let windowScene = UIApplication.shared.connectedScenes.first as?UIWindowScene,
+//    let sceneDelegate = windowScene.delegate as? SceneDelegate
+//    else {
+//        return
+//    }
+//
+//    sceneDelegate.mainTab = MainTabBarViewController()
+//    sceneDelegate.window?.rootViewController = sceneDelegate.mainTab
+//
+//    // Then save or create accesstoken to db
+//    if let token = tokenResult.accessToken{
+//        let myToken = AccessToken()// this is token in db
+//        myToken.token = token
+//        let realm = try Realm()
+//
+//        let tokenInDB = realm.objects(AccessToken.self)
+//
+//        // Create new if db doesn't has
+//        if(tokenInDB.count == 0){
+//            try realm.write{
+//                realm.add(myToken)
+//            }
+//        }
+//
+//        // update if token is already exist
+//        else{
+//            try realm.write{
+//                tokenInDB[0].token = myToken.token
+//            }
+//        }
+//
+//        sceneDelegate.accessToken = token // Update accesstoken in sceneDelegate
+//    }
+//}
+//else{
+//    self.ShowError("Error", tokenResult.error ?? "There is an error")
+//
+//}

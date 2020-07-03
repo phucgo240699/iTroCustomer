@@ -17,7 +17,9 @@ class TokenServices {
                 
                 let realm = try Realm()
                 let accessTokens = realm.objects(AccessToken.self)
-                
+
+                print("accessTokens: \n")
+                print(accessTokens)
                 if(accessTokens.count > 0){
                     accessToken = accessTokens[0].token
                 }
@@ -29,7 +31,6 @@ class TokenServices {
     }
     
     static func CheckToken(_ accessToken: String) {
-        
         // this is variable to check
         var isValidToken:Bool = false
         
@@ -43,32 +44,69 @@ class TokenServices {
             "Accept": "application/json"
         ]
         
-        //DispatchQueue.global(qos: .default).async {
+        // REQUEST CHECK TOKEN
         Alamofire.request(url, method: .get, parameters: nil, encoding:JSONEncoding.default, headers: headers).response {
                     response in
-                    
-                guard let rawResponse = response.data else { return }
-                    
-                guard let windowScene = UIApplication.shared.connectedScenes.first as?UIWindowScene,
-                    let sceneDelegate = windowScene.delegate as? SceneDelegate
-                    else {
-                        return
-                }
-                    
+            guard let rawResponse = response.data else { return }
+            
+            guard let windowScene = UIApplication.shared.connectedScenes.first as?UIWindowScene,
+                let sceneDelegate = windowScene.delegate as? SceneDelegate
+                else {
+                    return
+            }
+            
+            // Parse response from check token API
             let myResult = TokenValidation.decode(rawResponse)
             
+            // if failed, show error
             if(type(of: myResult) == String.self){
                 sceneDelegate.loginVC?.ShowError("Error", myResult as? String ?? "There is an error")
             }
-            else if(type(of: myResult) == Bool.self){
+            
+            // if success, isValidToken = true, get user, update token to DB
+            else if(type(of: myResult) == Users.self){
                 isValidToken = true
+                sceneDelegate.user = myResult as? Users
+                UpdateAccessToken(accessToken) // in DB & sceneDelegate
             }
-                
             sceneDelegate.window?.rootViewController = isValidToken == false ? sceneDelegate.loginVC : sceneDelegate.mainTab
                     
         }
-        //}
-        
+    }
+    
+    static func UpdateAccessToken(_ accessToken: String){
+        do {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as?UIWindowScene,
+                let sceneDelegate = windowScene.delegate as? SceneDelegate
+                else {
+                    return
+            }
+            // Then save or create accesstoken to db
+            let myToken = AccessToken()// this is token in db
+            myToken.token = accessToken
+            let realm = try Realm()
+                
+            let tokenInDB = realm.objects(AccessToken.self)
+                
+            // Create new if db doesn't has
+            if(tokenInDB.count == 0){
+                try realm.write{
+                    realm.add(myToken)
+                }
+            }
+                
+            // update if token is already exist
+            else{
+            try realm.write{
+                tokenInDB[0].token = myToken.token
+                }
+            }
+                
+            sceneDelegate.accessToken = accessToken // Update accesstoken in sceneDelegate
+            
+        } catch  {
+            print(error)
+        }
     }
 
 }

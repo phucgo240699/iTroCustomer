@@ -10,6 +10,7 @@ import Foundation
 
 struct TokenValidation: Decodable {
     var success: Bool
+    var data: Users?
     var error: String?
     
     static func decode(_ rawResponse: Data) -> Any{
@@ -17,7 +18,7 @@ struct TokenValidation: Decodable {
         do{
             let response = try JSONDecoder().decode(TokenValidation.self, from: rawResponse)
             if(response.success == true){
-                return true
+                return response.data!
             }
             else {
                 error = response.error ?? "Error"

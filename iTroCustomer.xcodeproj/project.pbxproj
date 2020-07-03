@@ -21,6 +21,8 @@
 		3E7348A624A6E8D200FEA068 /* InvoiceDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7348A524A6E8D200FEA068 /* InvoiceDescriptionViewController.swift */; };
 		3E86282624ADBE8300C833E0 /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86282524ADBE8300C833E0 /* ReportTableViewCell.swift */; };
 		3E86282A24ADBF4C00C833E0 /* DetailReportTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86282924ADBF4C00C833E0 /* DetailReportTBVCell.swift */; };
+		3EAE0A0C24AF2030002AF025 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE0A0B24AF2030002AF025 /* BarCodeViewController.swift */; };
+		3EAE0A0F24AF2CBE002AF025 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE0A0E24AF2CBE002AF025 /* Customer.swift */; };
 		3EBCCDE324ACC91E0079AE25 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCCDE224ACC91E0079AE25 /* SettingController.swift */; };
 		3EC8CF9024AB633500307F52 /* Reports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC8CF8F24AB633500307F52 /* Reports.swift */; };
 		3EC8CF9424AB7D2300307F52 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC8CF9324AB7D2300307F52 /* ExtensionViewController.swift */; };
@@ -57,6 +59,8 @@
 		3E7348A524A6E8D200FEA068 /* InvoiceDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDescriptionViewController.swift; sourceTree = "<group>"; };
 		3E86282524ADBE8300C833E0 /* ReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
 		3E86282924ADBF4C00C833E0 /* DetailReportTBVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReportTBVCell.swift; sourceTree = "<group>"; };
+		3EAE0A0B24AF2030002AF025 /* BarCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
+		3EAE0A0E24AF2CBE002AF025 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		3EBCCDE224ACC91E0079AE25 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		3EC8CF8F24AB633500307F52 /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
 		3EC8CF9324AB7D2300307F52 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				3E42B71224AADDAD00B15A83 /* Room.swift */,
 				3EC8CF8F24AB633500307F52 /* Reports.swift */,
 				3EE281C824AC3D37004A98BC /* Users.swift */,
+				3EAE0A0E24AF2CBE002AF025 /* Customer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +157,15 @@
 				3E86282924ADBF4C00C833E0 /* DetailReportTBVCell.swift */,
 			);
 			path = Report;
+			sourceTree = "<group>";
+		};
+		3EAE0A0D24AF203A002AF025 /* Invoice */ = {
+			isa = PBXGroup;
+			children = (
+				3E7348A324A6E84E00FEA068 /* InvoicesViewController.swift */,
+				3E7348A524A6E8D200FEA068 /* InvoiceDescriptionViewController.swift */,
+			);
+			path = Invoice;
 			sourceTree = "<group>";
 		};
 		3EE72A66249C265300591B1C = {
@@ -201,12 +215,12 @@
 		3EE72A89249C299700591B1C /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				3EAE0A0D24AF203A002AF025 /* Invoice */,
 				3E86282724ADBF1000C833E0 /* Report */,
 				3EE72A87249C26F200591B1C /* LoginView.swift */,
 				3E64BEE424A4EC4700048A5B /* MainTabBarViewController.swift */,
-				3E7348A324A6E84E00FEA068 /* InvoicesViewController.swift */,
-				3E7348A524A6E8D200FEA068 /* InvoiceDescriptionViewController.swift */,
 				3EE281D624AC837C004A98BC /* SettingViewController.swift */,
+				3EAE0A0B24AF2030002AF025 /* BarCodeViewController.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -361,6 +375,7 @@
 				3E86282A24ADBF4C00C833E0 /* DetailReportTBVCell.swift in Sources */,
 				3E7348A624A6E8D200FEA068 /* InvoiceDescriptionViewController.swift in Sources */,
 				3EE281D324AC7861004A98BC /* DetailReportCreationVC.swift in Sources */,
+				3EAE0A0C24AF2030002AF025 /* BarCodeViewController.swift in Sources */,
 				3EE72A73249C265300591B1C /* AppDelegate.swift in Sources */,
 				3EE281CB24AC4000004A98BC /* ReportsController.swift in Sources */,
 				3EE281D124AC76CE004A98BC /* ReportCreationViewController.swift in Sources */,
@@ -369,6 +384,7 @@
 				3EE72A75249C265300591B1C /* SceneDelegate.swift in Sources */,
 				3E0926EF24A9D1CF005FC74D /* API.swift in Sources */,
 				3E42B71124AADBDF00B15A83 /* Invoices.swift in Sources */,
+				3EAE0A0F24AF2CBE002AF025 /* Customer.swift in Sources */,
 				3E64BEE524A4EC4700048A5B /* MainTabBarViewController.swift in Sources */,
 				3EC8CF9024AB633500307F52 /* Reports.swift in Sources */,
 				3EE281CF24AC4F3A004A98BC /* DetailInvoicesVC.swift in Sources */,

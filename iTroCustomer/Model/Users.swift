@@ -9,6 +9,7 @@
 import Foundation
 
 struct Users: Decodable {
+    var _id: String
     var username: String
     var password: String
     var isAdmin: Bool

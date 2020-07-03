@@ -44,7 +44,7 @@ extension ReportCreationViewController{
         let params = ["name": name, "description": descriptionTxtView?.text]
         
         DispatchQueue.global(qos: .background).async {
-            Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).response { (response) in
+            Alamofire.request(url, method: .post, parameters: params as Parameters, encoding: JSONEncoding.default, headers: headers).response { (response) in
                 
                 guard let data = response.data else {
                     return
