@@ -30,15 +30,25 @@ class BarCodeViewController: UIViewController {
     }
     
     func SetupBarcodeImageView(_ barcodeImageView: UIImageView){
-        guard let barcodeImg = generateBarcodeFromString(from: "Swift") else {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as?UIWindowScene,
+            let sceneDelegate = windowScene.delegate as? SceneDelegate
+            else {
+                return
+        }
+        
+        guard let barcode = sceneDelegate.user?.owner else {
+            return
+        }
+        
+        guard let barcodeImg = generateBarcodeFromString(from: barcode) else {
             return
         }
         barcodeImageView.image = barcodeImg
         barcodeImageView.translatesAutoresizingMaskIntoConstraints = false
 
         
-        barcodeImageView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.5).isActive = true
-        barcodeImageView.heightAnchor.constraint(equalToConstant: view.frame.width * 0.25).isActive = true
+        barcodeImageView.widthAnchor.constraint(equalToConstant: view.frame.width ).isActive = true
+        barcodeImageView.heightAnchor.constraint(equalToConstant: view.frame.width * 0.5).isActive = true
         
         barcodeImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         barcodeImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true

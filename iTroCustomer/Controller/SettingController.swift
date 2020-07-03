@@ -59,7 +59,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                 self.ShowError("Error", error.localizedDescription)
             }
         }
-        
+        sceneDelegate.loginVC?.usernameTxtField?.text = ""
+        sceneDelegate.loginVC?.passwordTxtField?.text = ""
         sceneDelegate.window?.rootViewController = sceneDelegate.loginVC
     }
     

@@ -67,19 +67,27 @@ class TokenServices {
             else if(type(of: myResult) == Users.self){
                 isValidToken = true
                 sceneDelegate.user = myResult as? Users
-                UpdateAccessToken(accessToken) // in DB & sceneDelegate
+                isValidToken = UpdateAccessToken(accessToken) // in DB & sceneDelegate
             }
-            sceneDelegate.window?.rootViewController = isValidToken == false ? sceneDelegate.loginVC : sceneDelegate.mainTab
+            print("user")
+            print(sceneDelegate.user)
+            if(isValidToken){
+                sceneDelegate.window?.rootViewController = sceneDelegate.mainTab
+            }
+            else{
+                sceneDelegate.window?.rootViewController = sceneDelegate.loginVC
+                sceneDelegate.loginVC?.ShowError("Error", "Token login failed")
+            }
                     
         }
     }
     
-    static func UpdateAccessToken(_ accessToken: String){
+    static func UpdateAccessToken(_ accessToken: String) -> Bool{
         do {
             guard let windowScene = UIApplication.shared.connectedScenes.first as?UIWindowScene,
                 let sceneDelegate = windowScene.delegate as? SceneDelegate
                 else {
-                    return
+                    return false
             }
             // Then save or create accesstoken to db
             let myToken = AccessToken()// this is token in db
@@ -97,15 +105,19 @@ class TokenServices {
                 
             // update if token is already exist
             else{
-            try realm.write{
-                tokenInDB[0].token = myToken.token
+                try realm.write{
+                    tokenInDB[0].token = myToken.token
                 }
+                sceneDelegate.mainTab = nil
+                sceneDelegate.mainTab = MainTabBarViewController()
             }
                 
             sceneDelegate.accessToken = accessToken // Update accesstoken in sceneDelegate
+            return true
             
         } catch  {
             print(error)
+            return false
         }
     }
 
