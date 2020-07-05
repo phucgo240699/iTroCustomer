@@ -43,16 +43,16 @@ extension ReportCreationViewController{
         
         let params = ["name": name, "description": descriptionTxtView?.text]
         
-        DispatchQueue.global(qos: .background).async {
+        //DispatchQueue.global(qos: .background).async {
             Alamofire.request(url, method: .post, parameters: params as Parameters, encoding: JSONEncoding.default, headers: headers).response { (response) in
                 
                 guard let data = response.data else {
                     return
                 }
                 
-                let result = ReportReponse.decode(data)
+                let result = ReportResponse.decode(data)
                 
-                if(type(of: result) == Report.self){
+                if(type(of: result) == Bool.self){
                     self.ShowError("Success", "Created successfully")
                     self.ClearReportForm()
                 }
@@ -60,6 +60,6 @@ extension ReportCreationViewController{
                     self.ShowError("Failed", result as! String)
                 }
             }
-        }
+        //}
     }
 }

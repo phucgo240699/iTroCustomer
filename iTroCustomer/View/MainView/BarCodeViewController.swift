@@ -16,7 +16,7 @@ class BarCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .darkGray
+        view.backgroundColor = .gray
         // Do any additional setup after loading the view.
         
         barcodeImageView = UIImageView(image: UIImage())
@@ -43,6 +43,7 @@ class BarCodeViewController: UIViewController {
         guard let barcodeImg = generateBarcodeFromString(from: barcode) else {
             return
         }
+        view.backgroundColor = .black
         barcodeImageView.image = barcodeImg
         barcodeImageView.translatesAutoresizingMaskIntoConstraints = false
 

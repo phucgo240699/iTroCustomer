@@ -18,11 +18,12 @@ struct ReportCell{
 struct Report: Decodable {
     var _id: String
     var name: String
-    var description: String
+    var description: String?
     var status: String
     var userId: String?
     var createdAt: Date?
     var updatedAt: Date?
+    var isDeleted:  Bool?
 }
 
 struct ReportsResponse: Decodable {
@@ -55,21 +56,22 @@ struct ReportCreation: Decodable {
     var description: String
     var status: String
     var userId: String
-    var createdAt: Date
-    var updatedAt: Date
-    var __v: Int
+    var createdAt: String
+    var updatedAt: String
+    var isDeleted:  Bool
 }
 
-struct ReportReponse: Decodable {
+struct ReportResponse: Decodable {
     var success: Bool
     var data: ReportCreation?
     var error: String?
     
     static func decode(_ rawResponse: Data) -> Any{
         do{
-            let response = try JSONDecoder().decode(ReportReponse.self, from: rawResponse)
+            let response = try JSONDecoder().decode(ReportResponse.self, from: rawResponse)
+            
             if(response.success == true){
-                return response.data!
+                return true
                 
             }
             

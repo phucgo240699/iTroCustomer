@@ -18,13 +18,11 @@ class TokenServices {
                 let realm = try Realm()
                 let accessTokens = realm.objects(AccessToken.self)
 
-                print("accessTokens: \n")
-                print(accessTokens)
                 if(accessTokens.count > 0){
                     accessToken = accessTokens[0].token
                 }
             } catch {
-                print(error.localizedDescription)
+                return error.localizedDescription
             }
         
         return accessToken
@@ -69,8 +67,7 @@ class TokenServices {
                 sceneDelegate.user = myResult as? Users
                 isValidToken = UpdateAccessToken(accessToken) // in DB & sceneDelegate
             }
-            print("user")
-            print(sceneDelegate.user)
+            
             if(isValidToken){
                 sceneDelegate.window?.rootViewController = sceneDelegate.mainTab
             }
@@ -116,7 +113,6 @@ class TokenServices {
             return true
             
         } catch  {
-            print(error)
             return false
         }
     }

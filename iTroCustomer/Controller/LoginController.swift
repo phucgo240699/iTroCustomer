@@ -11,15 +11,38 @@ import RealmSwift
 
 extension LoginVC{
     func DecodingLoginResponse(_ data: Data){
+
+        var result:Bool = false
         do{
             let tokenResult = try JSONDecoder().decode(Token.self, from: data)
             
             if(tokenResult.success == true){
-                TokenServices.CheckToken(tokenResult.accessToken!)
+                guard let accessToken = tokenResult.accessToken else {
+                    return
+                }
+                result = TokenServices.UpdateAccessToken(accessToken)
+            }
+            
+            else{
+                self.ShowError("Error", tokenResult.error ?? "There was an error")
             }
         }
         catch{
             self.ShowError("Error", error.localizedDescription)
+        }
+        
+        guard let windowScene = UIApplication.shared.connectedScenes.first as?UIWindowScene,
+            let sceneDelegate = windowScene.delegate as? SceneDelegate
+            else {
+                return
+        }
+        
+        if(result == true){
+            sceneDelegate.window?.rootViewController = sceneDelegate.mainTab
+        }
+        else{
+            sceneDelegate.loginVC?.passwordTxtField?.text = ""
+            sceneDelegate.window?.rootViewController = sceneDelegate.loginVC
         }
     }
     
