@@ -9,10 +9,85 @@
 import Foundation
 
 struct InvoiceCell {
+//    var consumptionElectric: Int?
+//    var consumptionWater: Int?
+//    var waterCost: Int?
+//    var electricCost: Int?
+//    var waterPrice: Int?
+//    var electricPrice: Int?
+//    var internetPrice: Int?
+//    var parkingPrice: Int?
+//    var cleanPrice: Int?
+    var _id: String
     var roomName:String
     var totalPrice:Int
+    var createdAt: String?
+    init (roomName: String, totalPrice: Int, _id: String){
+        self.roomName = roomName
+        self.totalPrice = totalPrice
+        self._id = _id
+    }
 }
+
 struct Invoice: Decodable {
+    var _id: String
+    var consumptionElectric: Int?
+    var consumptionWater: Int?
+    var waterCost: Int?
+    var electricCost: Int?
+    var waterPrice: Int?
+    var electricPrice: Int?
+    var internetPrice: Int?
+    var parkingPrice: Int?
+    var cleanPrice: Int?
+    var totalPrice: Int
+    var roomId:Room
+    var createdAt: String
+    var isPaid: Bool
+}
+
+struct InvoicesResponse:Decodable{
+    var success: Bool
+    var data: [Invoice]
+    var error: String?
+    
+    static func decode(_ rawResponse: Data) -> Any{
+        do{
+            let response = try JSONDecoder().decode(InvoicesResponse.self, from: rawResponse)
+            if(response.success == true){
+                return response.data
+                
+            }
+            
+            return response.error ?? "Error"
+            
+        }
+        catch {
+            print("here")
+            print(error)
+            return String(error.localizedDescription)
+        }
+    }
+}
+
+struct InvoiceDescriptionElement {
+    var consumptionElectric: Int
+    var consumptionWater: Int
+    var waterCost: Int
+    var electricCost: Int
+    var waterPrice: Int
+    var electricPrice: Int
+    var internetPrice: Int
+    var parkingPrice: Int
+    var cleanPrice: Int
+    var roomName:String
+    var totalPrice:Int
+    var createdAt: String
+
+}
+
+struct InvoiceDescription: Decodable {
+    var _id: String
     var consumptionElectric: Int
     var consumptionWater: Int
     var waterCost: Int?
@@ -23,19 +98,20 @@ struct Invoice: Decodable {
     var parkingPrice: Int
     var cleanPrice: Int
     var totalPrice: Int
-    var roomId:Room
+    var roomId:String
+    var createdAt: String
 }
 
-struct InvoicesResponse:Decodable{
+struct InvoiceDescriptionResponse:Decodable{
     var success: Bool
-    var data: [Invoice]?
+    var data: InvoiceDescription?
     var error: String?
     
     static func decode(_ rawResponse: Data) -> Any{
         do{
-            let response = try JSONDecoder().decode(InvoicesResponse.self, from: rawResponse)
+            let response = try JSONDecoder().decode(InvoiceDescriptionResponse.self, from: rawResponse)
             if(response.success == true){
-                return response.data ?? []
+                return response.data!
                 
             }
             
@@ -43,6 +119,8 @@ struct InvoicesResponse:Decodable{
             
         }
         catch {
+            print("here")
+            print(error)
             return String(error.localizedDescription)
         }
     }

@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E036A8E24B2CDF200C3FBED /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E036A8D24B2CDF200C3FBED /* SettingTableViewCell.swift */; };
+		3E036A9324B2CE8700C3FBED /* DetailSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E036A9224B2CE8700C3FBED /* DetailSettingVC.swift */; };
+		3E036A9524B2CEAB00C3FBED /* DetailSettingTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E036A9424B2CEAB00C3FBED /* DetailSettingTBVCell.swift */; };
 		3E0926E524A9A1D9005FC74D /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0926E424A9A1D9005FC74D /* ReportViewController.swift */; };
 		3E0926E824A9B815005FC74D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0926E724A9B815005FC74D /* LoginController.swift */; };
 		3E0926ED24A9C4E1005FC74D /* TokenServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0926EC24A9C4E1005FC74D /* TokenServices.swift */; };
 		3E0926EF24A9D1CF005FC74D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0926EE24A9D1CF005FC74D /* API.swift */; };
 		3E0926F124A9D52E005FC74D /* TokenValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0926F024A9D52E005FC74D /* TokenValidation.swift */; };
+		3E32E01424B563D2003E9705 /* DetailInvoiceDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32E01324B563D2003E9705 /* DetailInvoiceDescriptionVC.swift */; };
 		3E42B70F24AAD9B200B15A83 /* InvoicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42B70E24AAD9B200B15A83 /* InvoicesController.swift */; };
 		3E42B71124AADBDF00B15A83 /* Invoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42B71024AADBDF00B15A83 /* Invoices.swift */; };
 		3E42B71324AADDAD00B15A83 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42B71224AADDAD00B15A83 /* Room.swift */; };
@@ -45,11 +49,15 @@
 
 /* Begin PBXFileReference section */
 		1446701767ECED5845243DE5 /* Pods-iTroCustomer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTroCustomer.debug.xcconfig"; path = "Target Support Files/Pods-iTroCustomer/Pods-iTroCustomer.debug.xcconfig"; sourceTree = "<group>"; };
+		3E036A8D24B2CDF200C3FBED /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		3E036A9224B2CE8700C3FBED /* DetailSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettingVC.swift; sourceTree = "<group>"; };
+		3E036A9424B2CEAB00C3FBED /* DetailSettingTBVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettingTBVCell.swift; sourceTree = "<group>"; };
 		3E0926E424A9A1D9005FC74D /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		3E0926E724A9B815005FC74D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		3E0926EC24A9C4E1005FC74D /* TokenServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServices.swift; sourceTree = "<group>"; };
 		3E0926EE24A9D1CF005FC74D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		3E0926F024A9D52E005FC74D /* TokenValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenValidation.swift; sourceTree = "<group>"; };
+		3E32E01324B563D2003E9705 /* DetailInvoiceDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvoiceDescriptionVC.swift; sourceTree = "<group>"; };
 		3E42B70E24AAD9B200B15A83 /* InvoicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesController.swift; sourceTree = "<group>"; };
 		3E42B71024AADBDF00B15A83 /* Invoices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoices.swift; sourceTree = "<group>"; };
 		3E42B71224AADDAD00B15A83 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -96,6 +104,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E036A8F24B2CE1F00C3FBED /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				3EE281D624AC837C004A98BC /* SettingViewController.swift */,
+				3E036A8D24B2CDF200C3FBED /* SettingTableViewCell.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		3E036A9024B2CE2F00C3FBED /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				3E036A9224B2CE8700C3FBED /* DetailSettingVC.swift */,
+				3E036A9424B2CEAB00C3FBED /* DetailSettingTBVCell.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		3E036A9124B2CE4600C3FBED /* Invoice */ = {
+			isa = PBXGroup;
+			children = (
+				3EE281CE24AC4F3A004A98BC /* DetailInvoicesVC.swift */,
+				3E32E01324B563D2003E9705 /* DetailInvoiceDescriptionVC.swift */,
+			);
+			path = Invoice;
+			sourceTree = "<group>";
+		};
 		3E05A45724ADC1720051236E /* Report */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,11 +250,11 @@
 		3EE72A89249C299700591B1C /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				3E036A8F24B2CE1F00C3FBED /* Setting */,
 				3EAE0A0D24AF203A002AF025 /* Invoice */,
 				3E86282724ADBF1000C833E0 /* Report */,
 				3EE72A87249C26F200591B1C /* LoginView.swift */,
 				3E64BEE424A4EC4700048A5B /* MainTabBarViewController.swift */,
-				3EE281D624AC837C004A98BC /* SettingViewController.swift */,
 				3EAE0A0B24AF2030002AF025 /* BarCodeViewController.swift */,
 			);
 			path = MainView;
@@ -228,9 +263,10 @@
 		3EE72A8A249C29A500591B1C /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				3E036A9124B2CE4600C3FBED /* Invoice */,
+				3E036A9024B2CE2F00C3FBED /* Setting */,
 				3E86282824ADBF2A00C833E0 /* Report */,
 				3EE72A8B249C29BA00591B1C /* DetailLoginVC.swift */,
-				3EE281CE24AC4F3A004A98BC /* DetailInvoicesVC.swift */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -378,8 +414,11 @@
 				3EAE0A0C24AF2030002AF025 /* BarCodeViewController.swift in Sources */,
 				3EE72A73249C265300591B1C /* AppDelegate.swift in Sources */,
 				3EE281CB24AC4000004A98BC /* ReportsController.swift in Sources */,
+				3E32E01424B563D2003E9705 /* DetailInvoiceDescriptionVC.swift in Sources */,
+				3E036A9524B2CEAB00C3FBED /* DetailSettingTBVCell.swift in Sources */,
 				3EE281D124AC76CE004A98BC /* ReportCreationViewController.swift in Sources */,
 				3EE281C924AC3D37004A98BC /* Users.swift in Sources */,
+				3E036A9324B2CE8700C3FBED /* DetailSettingVC.swift in Sources */,
 				3EE281CD24AC4D26004A98BC /* DetailReportVC.swift in Sources */,
 				3EE72A75249C265300591B1C /* SceneDelegate.swift in Sources */,
 				3E0926EF24A9D1CF005FC74D /* API.swift in Sources */,
@@ -388,6 +427,7 @@
 				3E64BEE524A4EC4700048A5B /* MainTabBarViewController.swift in Sources */,
 				3EC8CF9024AB633500307F52 /* Reports.swift in Sources */,
 				3EE281CF24AC4F3A004A98BC /* DetailInvoicesVC.swift in Sources */,
+				3E036A8E24B2CDF200C3FBED /* SettingTableViewCell.swift in Sources */,
 				3E86282624ADBE8300C833E0 /* ReportTableViewCell.swift in Sources */,
 				3E0926F124A9D52E005FC74D /* TokenValidation.swift in Sources */,
 				3EE72A88249C26F200591B1C /* LoginView.swift in Sources */,

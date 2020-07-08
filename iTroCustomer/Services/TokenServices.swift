@@ -17,7 +17,8 @@ class TokenServices {
                 
                 let realm = try Realm()
                 let accessTokens = realm.objects(AccessToken.self)
-
+                print("accessTokens")
+                print(accessTokens)
                 if(accessTokens.count > 0){
                     accessToken = accessTokens[0].token
                 }

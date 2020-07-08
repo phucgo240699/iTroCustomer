@@ -11,26 +11,27 @@ import RealmSwift
 
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
+    static func GetRowHeight() -> CGFloat{
+        return 80
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identify = "reusedCell"
+        //let identify = "reusedCell"
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: identify)
+        let cell = SettingTableViewCell()
         
-        if(cell == nil){
-            cell = UITableViewCell(style: .default, reuseIdentifier: identify)
-        }
-        
-        cell?.textLabel?.text = settings[indexPath.row]
+        cell.name?.text = "Generate barcode"
+        cell.thumbnail?.image = UIImage(systemName: "barcode")
 
-        return cell!
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return SettingViewController.GetRowHeight()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -63,21 +64,5 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         sceneDelegate.loginVC?.passwordTxtField?.text = ""
         sceneDelegate.window?.rootViewController = sceneDelegate.loginVC
     }
-    
-    func SetupView(){
-        view.backgroundColor = .lightGray
-        self.title = "Setting"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(self.LogoutButtonAction))
-    }
-    
-    func SetupTableView(){
-        tableView = UITableView(frame: view.bounds)
-        
-        guard let tableView = tableView else { return }
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        self.view.addSubview(tableView)
-    }
+
 }
