@@ -28,8 +28,8 @@ extension InvoicesViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         cell?.textLabel?.text = listInvoiceCells[indexPath.row].roomName + "\t\t\t\t" + String(listInvoiceCells[indexPath.row].totalPrice)
-        cell?.detailTextLabel?.text = String(listInvoiceCells[indexPath.row].totalPrice)
         
+        cell?.backgroundColor = listInvoiceCells[indexPath.row].isPaid == true ? .green : .white
         return cell!
     }
     
@@ -79,7 +79,7 @@ extension InvoicesViewController: UITableViewDataSource, UITableViewDelegate {
                 let invoices = invoicesResponse as! [Invoice]
                 self.listInvoiceCells = []
                 for invoice in invoices{
-                    self.listInvoiceCells.append(InvoiceCell(roomName: invoice.roomId.name, totalPrice: invoice.totalPrice, _id: invoice._id))
+                    self.listInvoiceCells.append(InvoiceCell(roomName: invoice.roomId.name, totalPrice: invoice.totalPrice, _id: invoice._id, isPaid: invoice.isPaid))
                 }
                 
                 self.tableView?.reloadData()

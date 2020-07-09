@@ -9,23 +9,16 @@
 import Foundation
 
 struct InvoiceCell {
-//    var consumptionElectric: Int?
-//    var consumptionWater: Int?
-//    var waterCost: Int?
-//    var electricCost: Int?
-//    var waterPrice: Int?
-//    var electricPrice: Int?
-//    var internetPrice: Int?
-//    var parkingPrice: Int?
-//    var cleanPrice: Int?
     var _id: String
     var roomName:String
     var totalPrice:Int
     var createdAt: String?
-    init (roomName: String, totalPrice: Int, _id: String){
+    var isPaid: Bool
+    init (roomName: String, totalPrice: Int, _id: String, isPaid: Bool){
         self.roomName = roomName
         self.totalPrice = totalPrice
         self._id = _id
+        self.isPaid = isPaid
     }
 }
 
