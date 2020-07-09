@@ -32,6 +32,7 @@ extension LoginVC{
     }
     
     func SetupPasswordTxtField(passwordTxtField: UITextField) {
+        passwordTxtField.isSecureTextEntry = true
         passwordTxtField.translatesAutoresizingMaskIntoConstraints = false
         
         //
