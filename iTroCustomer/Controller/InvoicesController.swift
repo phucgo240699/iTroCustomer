@@ -29,28 +29,17 @@ extension InvoicesViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell?.textLabel?.text = listInvoiceCells[indexPath.row].roomName + "\t\t\t\t" + String(listInvoiceCells[indexPath.row].totalPrice)
         
-        cell?.backgroundColor = listInvoiceCells[indexPath.row].isPaid == true ? .green : .white
+        cell?.backgroundColor = listInvoiceCells[indexPath.row].isPaid == true ? UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.8) : UIColor(red: 255/255, green: 71/255, blue: 26/255, alpha: 0.8)
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("list////////////////////")
-        print(listInvoiceCells)
         GetInvoiceDescription(id: listInvoiceCells[indexPath.row]._id)
 
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destinationVC=segue.destination as! InvoiceDescriptionViewController
-//
-//        if let indexPath = tableView?.indexPathForSelectedRow{
-//            destinationVC.invoice = listInvoiceCells[indexPath.row]
-//        }
-//    }
     
     @objc func moveToThird(){
-//        let thirdViewController = InvoiceDescriptionViewController()
-//        self.navigationController?.pushViewController(thirdViewController, animated: true)
     }
     
     func UpdateAllInvoices(){
@@ -117,7 +106,7 @@ extension InvoicesViewController: UITableViewDataSource, UITableViewDelegate {
             if(type(of: invoiceDescriptionResponse) == InvoiceDescription.self){
                 let invoiceDescription = invoiceDescriptionResponse as! InvoiceDescription
                 
-                let invoiceDescriptionVC = InvoiceDescriptionViewController(invoice: InvoiceDescriptionElement(consumptionElectric: invoiceDescription.consumptionElectric, consumptionWater: invoiceDescription.consumptionWater, waterCost: invoiceDescription.waterCost ?? 0, electricCost: invoiceDescription.electricCost ?? 0, waterPrice: invoiceDescription.waterPrice, electricPrice: invoiceDescription.electricPrice, internetPrice: invoiceDescription.internetPrice, parkingPrice: invoiceDescription.parkingPrice, cleanPrice: invoiceDescription.cleanPrice, roomName: invoiceDescription.roomId, totalPrice: invoiceDescription.totalPrice, createdAt: invoiceDescription.createdAt))
+                let invoiceDescriptionVC = InvoiceDescriptionViewController(invoice: InvoiceDescriptionElement(consumptionElectric: invoiceDescription.consumptionElectric, consumptionWater: invoiceDescription.consumptionWater, waterCost: invoiceDescription.waterCost ?? 0, electricCost: invoiceDescription.electricCost ?? 0, waterPrice: invoiceDescription.waterPrice, electricPrice: invoiceDescription.electricPrice, internetPrice: invoiceDescription.internetPrice, parkingPrice: invoiceDescription.parkingPrice, cleanPrice: invoiceDescription.cleanPrice, roomName: invoiceDescription.roomId, totalPrice: invoiceDescription.totalPrice, createdAt: invoiceDescription.createdAt, isPaid: invoiceDescription.isPaid))
                 
                 self.navigationController?.pushViewController(invoiceDescriptionVC, animated: true)
 

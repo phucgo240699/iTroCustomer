@@ -76,7 +76,7 @@ struct InvoiceDescriptionElement {
     var roomName:String
     var totalPrice:Int
     var createdAt: String
-
+    var isPaid: Bool
 }
 
 struct InvoiceDescription: Decodable {
@@ -93,6 +93,7 @@ struct InvoiceDescription: Decodable {
     var totalPrice: Int
     var roomId:String
     var createdAt: String
+    var isPaid: Bool
 }
 
 struct InvoiceDescriptionResponse:Decodable{

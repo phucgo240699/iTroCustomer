@@ -11,7 +11,8 @@ import UIKit
 extension InvoicesViewController{
     func SetupView(){
         self.title = "Invoices"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Third", style: .plain, target: self, action: #selector(self.moveToThird))
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Third", style: .plain, target: self, action: #selector(self.moveToThird))
+        navigationController?.navigationBar.barTintColor = .white
     }
     
     func SetupRefreshControl(){
@@ -38,4 +39,6 @@ extension InvoicesViewController{
         
         self.view.addSubview(tableView)
     }
+    
+    
 }

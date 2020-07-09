@@ -70,11 +70,10 @@ class InvoiceDescriptionViewController: UIViewController {
             self.view.backgroundColor = .lightGray
             return
         }
-        print("........................")
-        print(invoice)
         
         self.title = "Details"
         self.view.backgroundColor = .white
+        navigationController?.navigationBar.barTintColor = invoice.isPaid == true ? UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.5) : UIColor(red: 255/255, green: 71/255, blue: 26/255, alpha: 0.5)
         
         index = 0
         topSpace = 100
