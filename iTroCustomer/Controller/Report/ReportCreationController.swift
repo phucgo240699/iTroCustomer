@@ -44,7 +44,7 @@ extension ReportCreationViewController{
         let params = ["name": name, "description": descriptionTxtView?.text]
         
         //DispatchQueue.global(qos: .background).async {
-            Alamofire.request(url, method: .post, parameters: params as Parameters, encoding: JSONEncoding.default, headers: headers).response { (response) in
+            AF.request(url, method: .post, parameters: params as Parameters, encoding: JSONEncoding.default, headers: headers).response { (response) in
                 
                 guard let data = response.data else {
                     return
@@ -53,7 +53,7 @@ extension ReportCreationViewController{
                 let result = ReportResponse.decode(data)
                 
                 if(type(of: result) == Bool.self){
-                    self.ShowError("Success", "Created successfully")
+                    self.ShowMessage("Success", "Created successfully")
                     self.ClearReportForm()
                 }
                 else if(type(of: result) == String.self){

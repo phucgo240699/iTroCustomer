@@ -1,30 +1,38 @@
 PODS:
-  - Alamofire (4.9.1)
+  - Alamofire (5.2.1)
   - IQKeyboardManagerSwift (6.5.5)
-  - Realm (5.1.0):
-    - Realm/Headers (= 5.1.0)
-  - Realm/Headers (5.1.0)
-  - RealmSwift (5.1.0):
-    - Realm (= 5.1.0)
+  - QuickLayout (3.0.0)
+  - Realm (5.2.0):
+    - Realm/Headers (= 5.2.0)
+  - Realm/Headers (5.2.0)
+  - RealmSwift (5.2.0):
+    - Realm (= 5.2.0)
+  - SwiftEntryKit (1.2.3):
+    - QuickLayout (= 3.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
   - RealmSwift
+  - SwiftEntryKit (= 1.2.3)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - IQKeyboardManagerSwift
+    - QuickLayout
     - Realm
     - RealmSwift
+    - SwiftEntryKit
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
-  Realm: bdea546851e37b4cf0a2400cef115c7c26fda488
-  RealmSwift: 70945aa168db93b215c460e9c8ef680261aa28af
+  QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
+  Realm: f749c723e272f08fdf1939af5e61d2bd09b203e8
+  RealmSwift: bf0ab78b52c5bafba8b3ad73be8dfb4c1ea5cf01
+  SwiftEntryKit: 340713c2e4a6662c5149629990bf1088bf5f0389
 
-PODFILE CHECKSUM: 2c4710d6921bfdfefe5d36947787b7068a33230c
+PODFILE CHECKSUM: c4a1996d01c7a915e925986875e7e3f1db87cd65
 
 COCOAPODS: 1.9.0.beta.2

@@ -56,8 +56,6 @@ struct InvoicesResponse:Decodable{
             
         }
         catch {
-            print("here")
-            print(error)
             return String(error.localizedDescription)
         }
     }
@@ -113,8 +111,6 @@ struct InvoiceDescriptionResponse:Decodable{
             
         }
         catch {
-            print("here")
-            print(error)
             return String(error.localizedDescription)
         }
     }

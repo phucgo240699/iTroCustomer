@@ -27,6 +27,8 @@
 		3E86282A24ADBF4C00C833E0 /* DetailReportTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86282924ADBF4C00C833E0 /* DetailReportTBVCell.swift */; };
 		3EAE0A0C24AF2030002AF025 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE0A0B24AF2030002AF025 /* BarCodeViewController.swift */; };
 		3EAE0A0F24AF2CBE002AF025 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE0A0E24AF2CBE002AF025 /* Customer.swift */; };
+		3EB807DA24B6F473002FF85B /* MyPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB807D924B6F473002FF85B /* MyPopUpView.swift */; };
+		3EB807DC24B6F876002FF85B /* UIView+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB807DB24B6F876002FF85B /* UIView+Message.swift */; };
 		3EBCCDE324ACC91E0079AE25 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCCDE224ACC91E0079AE25 /* SettingController.swift */; };
 		3EC8CF9024AB633500307F52 /* Reports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC8CF8F24AB633500307F52 /* Reports.swift */; };
 		3EC8CF9424AB7D2300307F52 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC8CF9324AB7D2300307F52 /* ExtensionViewController.swift */; };
@@ -69,6 +71,8 @@
 		3E86282924ADBF4C00C833E0 /* DetailReportTBVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReportTBVCell.swift; sourceTree = "<group>"; };
 		3EAE0A0B24AF2030002AF025 /* BarCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
 		3EAE0A0E24AF2CBE002AF025 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		3EB807D924B6F473002FF85B /* MyPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPopUpView.swift; sourceTree = "<group>"; };
+		3EB807DB24B6F876002FF85B /* UIView+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Message.swift"; sourceTree = "<group>"; };
 		3EBCCDE224ACC91E0079AE25 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		3EC8CF8F24AB633500307F52 /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
 		3EC8CF9324AB7D2300307F52 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +207,15 @@
 			path = Invoice;
 			sourceTree = "<group>";
 		};
+		3EB807D824B6F458002FF85B /* UILibrary */ = {
+			isa = PBXGroup;
+			children = (
+				3EB807D924B6F473002FF85B /* MyPopUpView.swift */,
+				3EB807DB24B6F876002FF85B /* UIView+Message.swift */,
+			);
+			path = UILibrary;
+			sourceTree = "<group>";
+		};
 		3EE72A66249C265300591B1C = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +253,7 @@
 		3EE72A86249C26D600591B1C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3EB807D824B6F458002FF85B /* UILibrary */,
 				3EE72A8A249C29A500591B1C /* DetailView */,
 				3EE72A89249C299700591B1C /* MainView */,
 				3EC8CF9324AB7D2300307F52 /* ExtensionViewController.swift */,
@@ -419,8 +433,10 @@
 				3EE281D124AC76CE004A98BC /* ReportCreationViewController.swift in Sources */,
 				3EE281C924AC3D37004A98BC /* Users.swift in Sources */,
 				3E036A9324B2CE8700C3FBED /* DetailSettingVC.swift in Sources */,
+				3EB807DA24B6F473002FF85B /* MyPopUpView.swift in Sources */,
 				3EE281CD24AC4D26004A98BC /* DetailReportVC.swift in Sources */,
 				3EE72A75249C265300591B1C /* SceneDelegate.swift in Sources */,
+				3EB807DC24B6F876002FF85B /* UIView+Message.swift in Sources */,
 				3E0926EF24A9D1CF005FC74D /* API.swift in Sources */,
 				3E42B71124AADBDF00B15A83 /* Invoices.swift in Sources */,
 				3EAE0A0F24AF2CBE002AF025 /* Customer.swift in Sources */,

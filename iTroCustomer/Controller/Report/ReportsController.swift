@@ -81,7 +81,7 @@ extension ReportViewController: UITableViewDelegate, UITableViewDataSource {
             "Accept": "application/json"
         ]
         
-        Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding
+        AF.request(url, method: .post, parameters: nil, encoding: JSONEncoding
             .default, headers: headers).response { (response) in
             guard let rawResponse = response.data else { return }
 

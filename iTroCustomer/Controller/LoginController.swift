@@ -55,8 +55,8 @@ extension LoginVC{
         // Request login
         DispatchQueue.global(qos: .background).async {
             guard let url = URL(string: API.GetLink(.login) ) else {return}
-
-            Alamofire.request(url, method: .post, parameters: ["username": username, "password": password], encoding: JSONEncoding.default, headers: nil).response{
+            
+            AF.request(url, method: .post, parameters: ["username": username, "password": password], encoding: JSONEncoding.default, headers: nil).response{
                 response in
                 
                 guard let data = response.data else { return }

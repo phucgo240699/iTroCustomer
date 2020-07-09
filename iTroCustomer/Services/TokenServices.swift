@@ -43,7 +43,7 @@ class TokenServices {
         ]
         
         // REQUEST CHECK TOKEN
-        Alamofire.request(url, method: .get, parameters: nil, encoding:JSONEncoding.default, headers: headers).response {
+        AF.request(url, method: .get, parameters: nil, encoding:JSONEncoding.default, headers: headers).response {
                     response in
             guard let rawResponse = response.data else { return }
             
