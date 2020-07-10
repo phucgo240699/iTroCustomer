@@ -93,6 +93,10 @@ extension InvoicesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func GetInvoiceDescription(id: String){
+        let invoiceDescriptionVC = InvoiceDescriptionViewController()
+
+        self.navigationController?.pushViewController(invoiceDescriptionVC, animated: true)
+        
         guard let url = URL(string: API.GetLink(.invoices) + "/" + id) else {
             return
         }
@@ -117,9 +121,9 @@ extension InvoicesViewController: UITableViewDataSource, UITableViewDelegate {
             if(type(of: invoiceDescriptionResponse) == InvoiceDescription.self){
                 let invoiceDescription = invoiceDescriptionResponse as! InvoiceDescription
                 
-                let invoiceDescriptionVC = InvoiceDescriptionViewController(invoice: InvoiceDescriptionElement(consumptionElectric: invoiceDescription.consumptionElectric, consumptionWater: invoiceDescription.consumptionWater, waterCost: invoiceDescription.waterCost ?? 0, electricCost: invoiceDescription.electricCost ?? 0, waterPrice: invoiceDescription.waterPrice, electricPrice: invoiceDescription.electricPrice, internetPrice: invoiceDescription.internetPrice, parkingPrice: invoiceDescription.parkingPrice, cleanPrice: invoiceDescription.cleanPrice, roomName: invoiceDescription.roomId, totalPrice: invoiceDescription.totalPrice, createdAt: invoiceDescription.createdAt, isPaid: invoiceDescription.isPaid))
                 
-                self.navigationController?.pushViewController(invoiceDescriptionVC, animated: true)
+                invoiceDescriptionVC.UpdateData(invoice:  InvoiceDescriptionElement(consumptionElectric: invoiceDescription.consumptionElectric, consumptionWater: invoiceDescription.consumptionWater, waterCost: invoiceDescription.waterCost ?? 0, electricCost: invoiceDescription.electricCost ?? 0, waterPrice: invoiceDescription.waterPrice, electricPrice: invoiceDescription.electricPrice, internetPrice: invoiceDescription.internetPrice, parkingPrice: invoiceDescription.parkingPrice, cleanPrice: invoiceDescription.cleanPrice, roomName: invoiceDescription.roomId, totalPrice: invoiceDescription.totalPrice, createdAt: invoiceDescription.createdAt, isPaid: invoiceDescription.isPaid))
+                
 
             }
             else{

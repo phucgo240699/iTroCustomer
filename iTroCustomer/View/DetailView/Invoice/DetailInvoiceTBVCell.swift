@@ -13,8 +13,6 @@ extension InvoiceTableViewCell{
         let width = self.frame.width
         let height = self.frame.height
         
-print(width)
-        print(height)
         // Initialize
         container = UIView()
         guard let container = container else { return }
@@ -25,8 +23,6 @@ print(width)
         } else{
             container.frame = CGRect(x: width * 0.05, y: height * 0.08, width: width * 0.84, height: height * 0.84)
         }
-        
-//        container.backgroundColor = UIColor(red: 255/255, green: 71/255, blue: 26/255, alpha: 0.8)
         
         container.layer.cornerRadius = container.frame.height * 0.2
         container.layer.shadowColor = UIColor.black.cgColor

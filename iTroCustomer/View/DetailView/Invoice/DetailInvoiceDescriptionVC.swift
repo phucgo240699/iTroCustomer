@@ -136,6 +136,68 @@ extension InvoiceDescriptionViewController{
         index += 1
     }
     
+    func SetupWaterPrice(_ waterPriceLbl: UILabel, _ waterPriceValue: UILabel){
+        
+        let width = view.frame.width
+        
+        // Label
+        waterPriceLbl.translatesAutoresizingMaskIntoConstraints = false
+        
+        waterPriceLbl.widthAnchor.constraint(equalToConstant: width).isActive = true
+        waterPriceLbl.heightAnchor.constraint(equalToConstant: width * lblHeightScale).isActive = true
+        
+        waterPriceLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        waterPriceLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: topSpace + spaceBetween * index + width * lblHeightScale * index + width * valueHeightScale * index ).isActive = true
+        
+        waterPriceLbl.text = "Water Cost"
+        waterPriceLbl.font = UIFont(name: waterPriceLbl.font?.fontName ?? "Helvetica Neue", size: width * lblHeightScale)
+        
+        // Text Field
+        waterPriceValue.translatesAutoresizingMaskIntoConstraints = false
+        
+        waterPriceValue.widthAnchor.constraint(equalToConstant: width).isActive = true
+        waterPriceValue.heightAnchor.constraint(equalToConstant: width * valueHeightScale).isActive = true
+        
+        waterPriceValue.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        waterPriceValue.topAnchor.constraint(equalTo: waterPriceLbl.topAnchor, constant: width*lblHeightScale).isActive = true
+        
+        waterPriceValue.text = "\(invoice?.waterCost ?? 0)"
+        waterPriceValue.font = UIFont(name: waterPriceValue.font?.fontName ?? "Helvetica Neue", size: width * valueHeightScale)
+
+        index += 1
+    }
+    
+    func SetupElectricPrice(_ electricPriceLbl: UILabel, _ electricPriceValue: UILabel){
+        
+        let width = view.frame.width
+        
+        // Label
+        electricPriceLbl.translatesAutoresizingMaskIntoConstraints = false
+        
+        electricPriceLbl.widthAnchor.constraint(equalToConstant: width).isActive = true
+        electricPriceLbl.heightAnchor.constraint(equalToConstant: width * lblHeightScale).isActive = true
+        
+        electricPriceLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        electricPriceLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: topSpace + spaceBetween * index + width * lblHeightScale * index + width * valueHeightScale * index ).isActive = true
+        
+        electricPriceLbl.text = "Electric Cost"
+        electricPriceLbl.font = UIFont(name: electricPriceLbl.font?.fontName ?? "Helvetica Neue", size: width * lblHeightScale)
+        
+        // Text Field
+        electricPriceValue.translatesAutoresizingMaskIntoConstraints = false
+        
+        electricPriceValue.widthAnchor.constraint(equalToConstant: width).isActive = true
+        electricPriceValue.heightAnchor.constraint(equalToConstant: width * valueHeightScale).isActive = true
+        
+        electricPriceValue.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        electricPriceValue.topAnchor.constraint(equalTo: electricPriceLbl.topAnchor, constant: width*lblHeightScale).isActive = true
+        
+        electricPriceValue.text = "\(invoice?.electricCost ?? 0)"
+        electricPriceValue.font = UIFont(name: electricPriceLbl.font?.fontName ?? "Helvetica Neue", size: width * valueHeightScale)
+
+        index += 1
+    }
+    
     func SetupInternetPrice(_ internetPriceLbl: UILabel, _ internetPriceValue: UILabel){
         
         let width = view.frame.width
