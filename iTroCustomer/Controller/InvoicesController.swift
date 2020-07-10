@@ -10,27 +10,38 @@ import UIKit
 import Alamofire
 
 extension InvoicesViewController: UITableViewDataSource, UITableViewDelegate {
-    
+    func GetRowHeight() -> CGFloat{
+        return UIDevice.current.userInterfaceIdiom == .pad ? 200 : 100
+    }
+    func GetRowWidth() -> CGFloat{
+        return self.view.frame.width
+    }
     // Table view delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listInvoiceCells.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return GetRowHeight()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "reusedCell")
+//        var cell = tableView.dequeueReusableCell(withIdentifier: "reusedCell")
+//
+//        if(cell == nil){
+//
+        let cell = InvoiceTableViewCell(style: .default, reuseIdentifier: "reusedCell")
         
-        if(cell == nil){
-            cell = UITableViewCell(style: .default, reuseIdentifier: "reusedCell")
-        }
         
-        cell?.textLabel?.text = listInvoiceCells[indexPath.row].roomName + "\t\t\t\t" + String(listInvoiceCells[indexPath.row].totalPrice)
+        cell.SetupCell(isPad: UIDevice.current.userInterfaceIdiom == .pad, width: GetRowWidth(), height: GetRowHeight())
         
-        cell?.backgroundColor = listInvoiceCells[indexPath.row].isPaid == true ? UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.8) : UIColor(red: 255/255, green: 71/255, blue: 26/255, alpha: 0.8)
-        return cell!
+        cell.roomNameLbl?.text = listInvoiceCells[indexPath.row].roomName
+        cell.totalPriceLbl?.text = String(listInvoiceCells[indexPath.row].totalPrice)
+
+        cell.container?.backgroundColor = listInvoiceCells[indexPath.row].isPaid == true ? UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.2) : UIColor(red: 255/255, green: 71/255, blue: 26/255, alpha: 0.2)
+        cell.accessoryType = .disclosureIndicator
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -82,6 +93,10 @@ extension InvoicesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func GetInvoiceDescription(id: String){
+        let invoiceDescriptionVC = InvoiceDescriptionViewController()
+
+        self.navigationController?.pushViewController(invoiceDescriptionVC, animated: true)
+        
         guard let url = URL(string: API.GetLink(.invoices) + "/" + id) else {
             return
         }
@@ -106,9 +121,9 @@ extension InvoicesViewController: UITableViewDataSource, UITableViewDelegate {
             if(type(of: invoiceDescriptionResponse) == InvoiceDescription.self){
                 let invoiceDescription = invoiceDescriptionResponse as! InvoiceDescription
                 
-                let invoiceDescriptionVC = InvoiceDescriptionViewController(invoice: InvoiceDescriptionElement(consumptionElectric: invoiceDescription.consumptionElectric, consumptionWater: invoiceDescription.consumptionWater, waterCost: invoiceDescription.waterCost ?? 0, electricCost: invoiceDescription.electricCost ?? 0, waterPrice: invoiceDescription.waterPrice, electricPrice: invoiceDescription.electricPrice, internetPrice: invoiceDescription.internetPrice, parkingPrice: invoiceDescription.parkingPrice, cleanPrice: invoiceDescription.cleanPrice, roomName: invoiceDescription.roomId, totalPrice: invoiceDescription.totalPrice, createdAt: invoiceDescription.createdAt, isPaid: invoiceDescription.isPaid))
                 
-                self.navigationController?.pushViewController(invoiceDescriptionVC, animated: true)
+                invoiceDescriptionVC.UpdateData(invoice:  InvoiceDescriptionElement(consumptionElectric: invoiceDescription.consumptionElectric, consumptionWater: invoiceDescription.consumptionWater, waterCost: invoiceDescription.waterCost ?? 0, electricCost: invoiceDescription.electricCost ?? 0, waterPrice: invoiceDescription.waterPrice, electricPrice: invoiceDescription.electricPrice, internetPrice: invoiceDescription.internetPrice, parkingPrice: invoiceDescription.parkingPrice, cleanPrice: invoiceDescription.cleanPrice, roomName: invoiceDescription.roomId, totalPrice: invoiceDescription.totalPrice, createdAt: invoiceDescription.createdAt, isPaid: invoiceDescription.isPaid))
+                
 
             }
             else{

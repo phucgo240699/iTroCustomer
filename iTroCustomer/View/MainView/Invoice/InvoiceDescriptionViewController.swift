@@ -52,28 +52,60 @@ class InvoiceDescriptionViewController: UIViewController {
     var valueHeightScale: CGFloat = 0.05
 
     
-     init (invoice: InvoiceDescriptionElement){
-        
+    func UpdateData(invoice: InvoiceDescriptionElement){
         self.invoice = invoice
-        super.init(nibName: nil, bundle: nil)
+        
+        guard let consumptionWaterValue = consumptionWaterValue else { return }
+        
+        guard let consumptionElectricValue = consumptionElectricValue else { return }
+        
+        guard let waterCostValue = waterCostValue else { return }
+        
+        guard let electricCostValue = electricCostValue else { return }
+        
+        guard let waterPriceValue = waterPriceValue else { return }
+        
+        guard let electricPriceValue = electricPriceValue else { return }
+        
+        guard let internetPriceValue = internetPriceValue else { return }
+        
+        guard let parkingPriceValue = parkingPriceValue else { return }
+        
+        guard let cleanPriceValue = cleanPriceValue else { return }
+        
+        guard let totalPriceValue = totalPriceValue else { return }
+        
+        guard let createdAtValue = createdAtValue else { return }
+        
+        consumptionWaterValue.text = String(invoice.consumptionWater)
+        consumptionElectricValue.text = String(invoice.consumptionElectric)
+        waterCostValue.text = String(invoice.waterCost)
+        electricCostValue.text = String(invoice.electricCost)
+        waterPriceValue.text = String(invoice.waterPrice)
+        electricPriceValue.text = String(invoice.electricPrice)
+        internetPriceValue.text = String(invoice.internetPrice)
+        parkingPriceValue.text = String(invoice.parkingPrice)
+        cleanPriceValue.text = String(invoice.cleanPrice)
+        totalPriceValue.text = String(invoice.totalPrice)
+        createdAtValue.text = invoice.createdAt
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //sinvoice = InvoiceCell(roomName: "", totalPrice: 0)
         
-        guard let invoice = invoice else {
-            self.view.backgroundColor = .lightGray
-            return
-        }
+//        guard let invoice = invoice else {
+//            self.view.backgroundColor = .lightGray
+//            return
+//        }
         
         self.title = "Details"
         self.view.backgroundColor = .white
-        navigationController?.navigationBar.barTintColor = invoice.isPaid == true ? UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.5) : UIColor(red: 255/255, green: 71/255, blue: 26/255, alpha: 0.5)
+        navigationController?.navigationBar.barTintColor = invoice?.isPaid == true ? UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.01) : UIColor(red: 255/255, green: 71/255, blue: 26/255, alpha: 0.01)
         
         index = 0
         topSpace = 100
@@ -126,6 +158,12 @@ class InvoiceDescriptionViewController: UIViewController {
         guard let electricCostLbl = electricCostLbl else{ return }
         guard let electricCostValue = electricCostValue else { return }
         
+        guard let waterPriceLbl = waterPriceLbl else{ return }
+        guard let waterPriceValue = waterPriceValue else { return }
+        
+        guard let electricPriceLbl = electricPriceLbl else{ return }
+        guard let electricPriceValue = electricPriceValue else { return }
+        
         guard let internetPriceLbl = internetPriceLbl else{ return }
         guard let internetPriceValue = internetPriceValue else { return }
         
@@ -154,6 +192,13 @@ class InvoiceDescriptionViewController: UIViewController {
         view.addSubview(electricCostLbl)
         view.addSubview(electricCostValue)
         
+        
+        view.addSubview(waterPriceLbl)
+        view.addSubview(waterPriceValue)
+        
+        view.addSubview(electricPriceLbl)
+        view.addSubview(electricPriceValue)
+        
         view.addSubview(internetPriceLbl)
         view.addSubview(internetPriceValue)
         
@@ -179,6 +224,8 @@ class InvoiceDescriptionViewController: UIViewController {
         SetupElectricCost(electricCostLbl, electricCostValue)
         
         SetupInternetPrice(internetPriceLbl, internetPriceValue)
+        
+        SetupParkingPrice(parkingPriceLbl, parkingPriceValue)
         
         SetupCleanPrice(cleanPriceLbl, cleanPriceValue)
         

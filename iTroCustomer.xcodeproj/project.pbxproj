@@ -25,6 +25,8 @@
 		3E7348A624A6E8D200FEA068 /* InvoiceDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7348A524A6E8D200FEA068 /* InvoiceDescriptionViewController.swift */; };
 		3E86282624ADBE8300C833E0 /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86282524ADBE8300C833E0 /* ReportTableViewCell.swift */; };
 		3E86282A24ADBF4C00C833E0 /* DetailReportTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E86282924ADBF4C00C833E0 /* DetailReportTBVCell.swift */; };
+		3E8E99DC24B75C0500206174 /* InvoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8E99DB24B75C0500206174 /* InvoiceTableViewCell.swift */; };
+		3E8E99DE24B7631200206174 /* DetailInvoiceTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8E99DD24B7631200206174 /* DetailInvoiceTBVCell.swift */; };
 		3EAE0A0C24AF2030002AF025 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE0A0B24AF2030002AF025 /* BarCodeViewController.swift */; };
 		3EAE0A0F24AF2CBE002AF025 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE0A0E24AF2CBE002AF025 /* Customer.swift */; };
 		3EB807DA24B6F473002FF85B /* MyPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB807D924B6F473002FF85B /* MyPopUpView.swift */; };
@@ -69,6 +71,8 @@
 		3E7348A524A6E8D200FEA068 /* InvoiceDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDescriptionViewController.swift; sourceTree = "<group>"; };
 		3E86282524ADBE8300C833E0 /* ReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
 		3E86282924ADBF4C00C833E0 /* DetailReportTBVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReportTBVCell.swift; sourceTree = "<group>"; };
+		3E8E99DB24B75C0500206174 /* InvoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTableViewCell.swift; sourceTree = "<group>"; };
+		3E8E99DD24B7631200206174 /* DetailInvoiceTBVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInvoiceTBVCell.swift; sourceTree = "<group>"; };
 		3EAE0A0B24AF2030002AF025 /* BarCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
 		3EAE0A0E24AF2CBE002AF025 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		3EB807D924B6F473002FF85B /* MyPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPopUpView.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 			children = (
 				3EE281CE24AC4F3A004A98BC /* DetailInvoicesVC.swift */,
 				3E32E01324B563D2003E9705 /* DetailInvoiceDescriptionVC.swift */,
+				3E8E99DD24B7631200206174 /* DetailInvoiceTBVCell.swift */,
 			);
 			path = Invoice;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 			children = (
 				3E7348A324A6E84E00FEA068 /* InvoicesViewController.swift */,
 				3E7348A524A6E8D200FEA068 /* InvoiceDescriptionViewController.swift */,
+				3E8E99DB24B75C0500206174 /* InvoiceTableViewCell.swift */,
 			);
 			path = Invoice;
 			sourceTree = "<group>";
@@ -419,6 +425,7 @@
 				3EBCCDE324ACC91E0079AE25 /* SettingController.swift in Sources */,
 				3E0926E824A9B815005FC74D /* LoginController.swift in Sources */,
 				3E5F671E24A73604003040D0 /* Token.swift in Sources */,
+				3E8E99DC24B75C0500206174 /* InvoiceTableViewCell.swift in Sources */,
 				3EE281D524AC80D4004A98BC /* ReportCreationController.swift in Sources */,
 				3EE281D724AC837C004A98BC /* SettingViewController.swift in Sources */,
 				3E42B71324AADDAD00B15A83 /* Room.swift in Sources */,
@@ -447,6 +454,7 @@
 				3E86282624ADBE8300C833E0 /* ReportTableViewCell.swift in Sources */,
 				3E0926F124A9D52E005FC74D /* TokenValidation.swift in Sources */,
 				3EE72A88249C26F200591B1C /* LoginView.swift in Sources */,
+				3E8E99DE24B7631200206174 /* DetailInvoiceTBVCell.swift in Sources */,
 				3EE72A8C249C29BA00591B1C /* DetailLoginVC.swift in Sources */,
 				3E7348A424A6E84E00FEA068 /* InvoicesViewController.swift in Sources */,
 				3E0926ED24A9C4E1005FC74D /* TokenServices.swift in Sources */,
