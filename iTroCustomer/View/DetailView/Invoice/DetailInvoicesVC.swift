@@ -11,8 +11,6 @@ import UIKit
 extension InvoicesViewController{
     func SetupView(){
         self.title = "Invoices"
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Third", style: .plain, target: self, action: #selector(self.moveToThird))
-        navigationController?.navigationBar.barTintColor = .white
     }
     
     func SetupRefreshControl(){
@@ -34,6 +32,7 @@ extension InvoicesViewController{
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         
         SetupRefreshControl()
         

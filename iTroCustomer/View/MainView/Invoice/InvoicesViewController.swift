@@ -25,7 +25,7 @@ class InvoicesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.barTintColor = .none
         UpdateAllInvoices()
     }
     
