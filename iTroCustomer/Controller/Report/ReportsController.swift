@@ -55,13 +55,13 @@ extension ReportViewController: UITableViewDelegate, UITableViewDataSource {
     func GetStatusColor(_ status: String) -> UIColor{
         switch status {
         case "done":
-            return .green
-        case "processing":
-            return .yellow
+            return UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.5)
+            
         case "cancel":
-            return .red
+            return UIColor(red: 255/255, green: 71/255, blue: 26/255, alpha: 0.5)
+            
         default:
-            return .white
+            return UIColor(red: 250/255, green: 250/255, blue: 0/255, alpha: 0.8)
         }
     }
     

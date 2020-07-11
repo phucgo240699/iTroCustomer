@@ -38,7 +38,7 @@ extension InvoicesViewController: UITableViewDataSource, UITableViewDelegate {
         cell.roomNameLbl?.text = listInvoiceCells[indexPath.row].roomName
         cell.totalPriceLbl?.text = String(listInvoiceCells[indexPath.row].totalPrice)
 
-        cell.container?.backgroundColor = listInvoiceCells[indexPath.row].isPaid == true ? UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.2) : UIColor(red: 255/255, green: 71/255, blue: 26/255, alpha: 0.2)
+        cell.container?.backgroundColor = listInvoiceCells[indexPath.row].isPaid == false ? UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.5) : UIColor(red: 255/255, green: 71/255, blue: 26/255, alpha: 0.5)
         cell.accessoryType = .disclosureIndicator
         
         return cell
