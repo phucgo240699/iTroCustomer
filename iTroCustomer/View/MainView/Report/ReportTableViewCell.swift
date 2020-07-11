@@ -13,14 +13,20 @@ class ReportTableViewCell: UITableViewCell {
 
     var nameReport: UILabel?
     var desciptionReport : UITextView?
+    var container: UIView?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.9, height: ReportViewController.GetRowHeight())
+        self.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: ReportViewController.GetRowHeight())
         
         self.nameReport = UILabel()
         self.desciptionReport = UITextView()
+        self.container = UIView()
+        
+        guard let container = container else {
+            return
+        }
         
         guard let nameReport = nameReport else {
             return
@@ -30,11 +36,13 @@ class ReportTableViewCell: UITableViewCell {
             return
         }
         
+        self.addSubview(container)
         self.addSubview(nameReport)
         self.addSubview(desciptionReport)
         
-        SetupNameReport(nameReport)
-        SetupDescriptionReport(desciptionReport)
+        SetupContainer(container)
+        SetupNameReport(nameReport, container)
+        SetupDescriptionReport(desciptionReport, container)
     }
     
     required init?(coder: NSCoder) {

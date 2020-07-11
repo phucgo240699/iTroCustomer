@@ -39,8 +39,8 @@ extension ReportViewController: UITableViewDelegate, UITableViewDataSource {
         if(listReportCells.count > 0){
             cell?.nameReport?.text = currentCell.name
             cell?.desciptionReport?.text =  currentCell.description
-            cell?.backgroundColor = GetStatusColor(currentCell.status)
-            cell?.layer.cornerRadius = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 15
+            cell?.container?.backgroundColor = GetStatusColor(currentCell.status)
+            
             
         }
         else{

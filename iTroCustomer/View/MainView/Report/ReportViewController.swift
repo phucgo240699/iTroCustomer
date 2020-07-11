@@ -32,7 +32,7 @@ class ReportViewController: UIViewController {
     
 
     static func GetRowHeight() -> CGFloat {
-        return UIDevice.current.userInterfaceIdiom == .pad ? 340 : 240
+        return UIDevice.current.userInterfaceIdiom == .pad ? 450 : 300
     }
     /*
     // MARK: - Navigation
