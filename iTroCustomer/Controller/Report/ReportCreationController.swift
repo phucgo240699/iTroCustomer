@@ -44,7 +44,7 @@ extension ReportCreationViewController{
         let params = ["name": name, "description": descriptionTxtView?.text]
         
         //DispatchQueue.global(qos: .background).async {
-            AF.request(url, method: .post, parameters: params as Parameters, encoding: JSONEncoding.default, headers: headers).response { (response) in
+            AF.request(url, method: .post, parameters: params as Parameters, encoding: JSONEncoding.default, headers: headers).response { [weak self] (response) in
                 
                 guard let data = response.data else {
                     return
@@ -53,11 +53,11 @@ extension ReportCreationViewController{
                 let result = ReportResponse.decode(data)
                 
                 if(type(of: result) == Bool.self){
-                    self.ShowMessage("Success", "Created successfully")
-                    self.ClearReportForm()
+                    self?.ShowMessage("Success", "Created successfully")
+                    self?.ClearReportForm()
                 }
                 else if(type(of: result) == String.self){
-                    self.ShowError("Failed", result as! String)
+                    self?.ShowError("Failed", result as! String)
                 }
             }
         //}

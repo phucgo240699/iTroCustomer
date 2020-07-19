@@ -70,24 +70,24 @@ extension InvoicesViewController: UITableViewDataSource, UITableViewDelegate {
         ]
         
         AF.request(url, method: .post, parameters: nil, encoding: JSONEncoding
-            .default, headers: headers).response { (response) in
+            .default, headers: headers).response { [weak self] (response) in
             guard let rawResponse = response.data else { return }
             
             let invoicesResponse = InvoicesResponse.decode(rawResponse)
             
             if(type(of: invoicesResponse) == [Invoice].self){
                 let invoices = invoicesResponse as! [Invoice]
-                self.listInvoiceCells = []
+                self?.listInvoiceCells = []
                 for invoice in invoices{
-                    self.listInvoiceCells.append(InvoiceCell(roomName: invoice.roomId.name, totalPrice: invoice.totalPrice, _id: invoice._id, isPaid: invoice.isPaid))
+                    self?.listInvoiceCells.append(InvoiceCell(roomName: invoice.roomId.name, totalPrice: invoice.totalPrice, _id: invoice._id, isPaid: invoice.isPaid))
                 }
                 
-                self.tableView?.reloadData()
-                self.refreshControl?.endRefreshing()
+                self?.tableView?.reloadData()
+                self?.refreshControl?.endRefreshing()
             }
             else{
                 let error = invoicesResponse as! String
-                self.ShowError("Error", error)
+                self?.ShowError("Error", error)
             }
         }
     }

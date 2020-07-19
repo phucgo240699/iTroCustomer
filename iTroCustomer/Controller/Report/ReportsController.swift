@@ -82,7 +82,7 @@ extension ReportViewController: UITableViewDelegate, UITableViewDataSource {
         ]
         
         AF.request(url, method: .post, parameters: nil, encoding: JSONEncoding
-            .default, headers: headers).response { (response) in
+            .default, headers: headers).response { [weak self] (response) in
             guard let rawResponse = response.data else { return }
 
                 
@@ -90,18 +90,18 @@ extension ReportViewController: UITableViewDelegate, UITableViewDataSource {
             if(type(of: reportsResponse) == [Report].self){
                 let reports = reportsResponse as! [Report]
                 
-                self.listReportCells = []
+                self?.listReportCells = []
                 
                 for report in reports{
-                    self.listReportCells.append(ReportCell(_id: report._id, name: report.name, description: report.description , status: report.status))
+                    self?.listReportCells.append(ReportCell(_id: report._id, name: report.name, description: report.description , status: report.status))
                 }
                 
-                self.tableView?.reloadData()
-                self.refreshControl?.endRefreshing()
+                self?.tableView?.reloadData()
+                self?.refreshControl?.endRefreshing()
             }
             else{
                 let error = reportsResponse as! String
-                self.ShowError("Error", error)
+                self?.ShowError("Error", error)
             }
         }
     }

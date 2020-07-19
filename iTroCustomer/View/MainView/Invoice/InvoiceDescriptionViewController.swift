@@ -96,12 +96,6 @@ class InvoiceDescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //sinvoice = InvoiceCell(roomName: "", totalPrice: 0)
-        
-//        guard let invoice = invoice else {
-//            self.view.backgroundColor = .lightGray
-//            return
-//        }
         
         self.title = "Details"
         self.view.backgroundColor = UIColor(named: "DynamicBackgroundColor")

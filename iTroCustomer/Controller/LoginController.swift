@@ -56,12 +56,12 @@ extension LoginVC{
         DispatchQueue.global(qos: .background).async {
             guard let url = URL(string: API.GetLink(.login) ) else {return}
             
-            AF.request(url, method: .post, parameters: ["username": username, "password": password], encoding: JSONEncoding.default, headers: nil).response{
+            AF.request(url, method: .post, parameters: ["username": username, "password": password], encoding: JSONEncoding.default, headers: nil).response{ [weak self]
                 response in
                 
                 guard let data = response.data else { return }
                 
-                self.DecodingLoginResponse(data)
+                self?.DecodingLoginResponse(data)
                 //DispatchQueue.global(qos: .background).async {
                     
                 
